@@ -4,7 +4,7 @@
 \alias{extract_min_r_version}
 \title{Extract declared minimum R version from DESCRIPTION}
 \usage{
-extract_min_r_version(path)
+extract_min_r_version(path = ".")
 }
 \arguments{
 \item{path}{Path to the package root}

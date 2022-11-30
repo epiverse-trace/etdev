@@ -6,7 +6,7 @@
 #' been declared
 #'
 #' @export
-extract_min_r_version <- function(path) {
+extract_min_r_version <- function(path = ".") {
 
   file.path(path, "DESCRIPTION") |>
     read.dcf("Depends") |>
