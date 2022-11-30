@@ -1,0 +1,13 @@
+Package: etdev
+Title: Internal Epiverse-TRACE Development Package
+Version: 0.0.0.9000
+Authors@R: 
+    person("Hugo", "Gruson", , "hugo.gruson+R@normalesup.org", role = c("aut", "cre", "cph"),
+           comment = c(ORCID = "0000-0002-4094-1476"))
+Description: Internal package providing tools for Epiverse-TRACE developers.
+License: MIT + file LICENSE
+Config/testthat/edition: 3
+Encoding: UTF-8
+Language: en-GB
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.2
