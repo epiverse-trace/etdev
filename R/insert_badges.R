@@ -10,6 +10,7 @@ insert_badge_rcmdcheck <- function(path = ".") {
   pkgname <- file.path(path, "DESCRIPTION") |>
     read.dcf("Package")
 
+  # nolint start
   paste0(
     "[",
     "![R-CMD-check]",
@@ -21,6 +22,7 @@ insert_badge_rcmdcheck <- function(path = ".") {
     pkgname,
     "/actions/workflows/R-CMD-check.yaml)"
   )
+  # nolint end
 
 }
 
@@ -32,6 +34,7 @@ insert_badge_codecov <- function(path = ".") {
   pkgname <- file.path(path, "DESCRIPTION") |>
     read.dcf("Package")
 
+  # nolint start
   paste0(
     "[",
     "![Codecov test coverage]",
@@ -43,5 +46,6 @@ insert_badge_codecov <- function(path = ".") {
     pkgname,
     "?branch=main)"
   )
+  # nolint end
 
 }
