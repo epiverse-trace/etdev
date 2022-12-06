@@ -17,8 +17,8 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![R-CMD-check](https://github.com/epiverse-trace/etdev/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/epiverse-trace/etdev/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/epiverse-trace/etdev/branch/main/graph/badge.svg)](https://app.codecov.io/gh/epiverse-trace/etdev?branch=main)
+`r etdev::insert_badge_rcmdcheck()`
+`r etdev::insert_badge_codecov()`
 <!-- badges: end -->
 
 This internal package provides tools for Epiverse-TRACE developers.
