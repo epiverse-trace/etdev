@@ -13,7 +13,7 @@ extract_min_r_version <- function(path = ".") {
     strsplit(",") |>
     unlist() |>
     trimws() |>
-    (\(x) grep("R ", x, value = TRUE))() |>
+    (\(x) grep("R ", x, value = TRUE, fixed = TRUE))() |>
     (\(x) gsub("^R \\(>=?\\s(.+)\\)", "\\1", x))() |>
     unname()
 
