@@ -62,12 +62,14 @@
 na_null_strings_linter <- function() {
 
   # Code mostly adapted from lintr::equals_na_linter() (MIT license)
+
+  # nolint next: undesirable_operator_linter
   na_null_strings <- lintr:::xp_text_in_table(c(
     glue::double_quote(c("NA", "NULL")),
     glue::single_quote(c("NA", "NULL"))
   ))
 
-  xpath = glue::glue("
+  xpath <- glue::glue("
     //STR_CONST[{ na_null_strings }]
       /parent::expr
       /parent::expr[EQ or NE]
