@@ -4,6 +4,7 @@ test_that("na_null_strings_linter() skips allowed usages", {
 
   lintr::expect_lint("x == 'a'", NULL, linter)
   lintr::expect_lint("x == 'NANA'", NULL, linter)
+  lintr::expect_lint("'a' == 'b'", NULL, linter)
 
 })
 
@@ -25,5 +26,9 @@ test_that("na_null_strings_linter() blocks simple disallowed usages", {
 
   lintr::expect_lint("x %in% 'NULL'", lint_message, linter)
   lintr::expect_lint("x != 'NULL'", lint_message, linter)
+
+  lintr::expect_lint('"NULL" == x', lint_message, linter)
+
+  lintr::expect_lint('"a" == "NA"', lint_message, linter)
 
 })
