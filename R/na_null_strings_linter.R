@@ -63,20 +63,14 @@ na_null_strings_linter <- function() {
 
   # Code mostly adapted from lintr::equals_na_linter() (MIT license)
 
-  # nolint next: undesirable_operator_linter
-  na_null_strings <- lintr:::xp_text_in_table(c(
-    glue::double_quote(c("NA", "NULL")),
-    glue::single_quote(c("NA", "NULL"))
-  ))
-
-  xpath <- glue::glue("
-    //STR_CONST[{ na_null_strings }]
+  compare_to_string_xpath <- glue::glue("
+    //STR_CONST
       /parent::expr
       /parent::expr[EQ or NE]
     |
     //SPECIAL[
       text() = '%in%' and
-      following-sibling::expr/STR_CONST[{ na_null_strings }]
+      following-sibling::expr/STR_CONST
     ]
       /parent::expr
   ")
@@ -88,7 +82,12 @@ na_null_strings_linter <- function() {
 
     xml <- source_expression$xml_parsed_content
 
-    bad_expr <- xml2::xml_find_all(xml, xpath)
+    compare_to_string_expr <- xml2::xml_find_all(xml, compare_to_string_xpath)
+
+    compared_to <- lintr::get_r_string(compare_to_string_expr, "//STR_CONST")
+    to_lint <- compared_to  %in% c("NULL", "NA")
+
+    bad_expr <- compare_to_string_expr[to_lint]
 
     lintr::xml_nodes_to_lints(
       bad_expr,

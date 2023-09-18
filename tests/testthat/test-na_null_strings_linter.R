@@ -29,6 +29,14 @@ test_that("na_null_strings_linter() blocks simple disallowed usages", {
 
   lintr::expect_lint('"NULL" == x', lint_message, linter)
 
-  lintr::expect_lint('"a" == "NA"', lint_message, linter)
+  lintr::expect_lint('x == r"{NULL}"', lint_message, linter)
+})
+
+test_that("na_null_strings_linters() false positives", {
+
+  linter <- na_null_strings_linter()
+
+  # I cannot think of any case where users migth want to compare two constants
+  lintr::expect_lint('"a" == "NA"', NULL, linter)
 
 })
