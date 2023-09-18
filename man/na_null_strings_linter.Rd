@@ -13,10 +13,10 @@ incorrect and will produce unexpected results.
 }
 \details{
 This linter has been proposed for integration in the lintr package (issue
-#2130) but was rejected due to the high possible of false positives, in the
-case when users actually want to compare to \code{"NA"} or \code{"NULL"} as strings.
-This can be the case when working with database or more generally when the
-character values have not been parsed as \code{NA} or \code{NULL} by R.
+#2130) but was rejected due to the high possibility of false positives, in
+the case when users actually want to compare to \code{"NA"} or \code{"NULL"} as
+strings. This can happen when working with database or more generally when
+the character values have not been parsed as \code{NA} or \code{NULL} by R.
 }
 \examples{
 lintr::lint(
@@ -41,6 +41,16 @@ lintr::lint(
 
 lintr::lint(
   text = "x == 'NULL'",
+  linters = etdev::na_null_strings_linter()
+)
+
+lintr::lint(
+  text = "x != 'NULL'",
+  linters = etdev::na_null_strings_linter()
+)
+
+lintr::lint(
+  text = 'x != "NULL"',
   linters = etdev::na_null_strings_linter()
 )
 
