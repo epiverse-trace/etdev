@@ -12,7 +12,13 @@ render_readme <- function() {
       packagename = read.dcf("DESCRIPTION", "Package"),
       gh_repo = ifelse(
         Sys.getenv("GITHUB_REPOSITORY") == "",
-        usethis:::github_remote_list()$repo_spec, # this makes it run locally
+        gsub( # this makes it run locally
+          "https://github.com/", "",
+          read.dcf(
+            "DESCRIPTION", "URL"
+          )[1],
+          fixed = TRUE
+        ),
         Sys.getenv("GITHUB_REPOSITORY")
       )
     ),
@@ -23,6 +29,5 @@ render_readme <- function() {
     output_file = "README.md",
     output_dir = "."
   )
-  unlink("README_expanded.Rmd")
-  unlink("README.html")
+  unlink(c("README.html", "README_expanded.Rmd"))
 }
