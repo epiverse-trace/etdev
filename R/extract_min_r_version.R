@@ -10,7 +10,7 @@ extract_min_r_version <- function(path = ".") {
 
   file.path(path, "DESCRIPTION") |>
     read.dcf("Depends") |>
-    strsplit(",") |>
+    strsplit(",", fixed = TRUE) |>
     unlist() |>
     trimws() |>
     (\(x) grep("R ", x, value = TRUE, fixed = TRUE))() |>
