@@ -7,6 +7,8 @@ Authors@R:
 Description: Internal package providing tools for Epiverse-TRACE developers.
 License: MIT + file LICENSE
 Config/testthat/edition: 3
+URL: https://github.com/epiverse-trace/etdev
+BugReports: https://github.com/epiverse-trace/etdev/issues
 Encoding: UTF-8
 Language: en-GB
 Roxygen: list(markdown = TRUE)
@@ -19,4 +21,6 @@ Imports:
     rex,
     xml2
 Suggests: 
+    knitr,
+    rmarkdown,
     testthat (>= 3.0.0)
