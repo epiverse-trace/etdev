@@ -1,27 +1,15 @@
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
 # etdev
 
-<!-- badges: start -->
+This package is now deprecated.
+It used to provide convenience tools for Epiverse-TRACE developers.
+Since it created more maintenance load than what our community can afford, it
+was deprecated in favour of well-supported community tools (in particular, tools
+from the [r-lib GitHub organization](https://github.com/r-lib)).
 
-[![License:
-MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![R-CMD-check](https://github.com/epiverse-trace/etdev/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/epiverse-trace/etdev/actions/workflows/R-CMD-check.yaml)
-[![Codecov test
-coverage](https://codecov.io/gh/epiverse-trace/etdev/branch/main/graph/badge.svg)](https://app.codecov.io/gh/epiverse-trace/etdev?branch=main)
-<!-- badges: end -->
+## Deprecation steps
 
-This internal package provides tools for Epiverse-TRACE developers.
-Eventually, all functions should be upstreamed to relevant packages used
-by the global community.
-
-## Installation
-
-You can install the development version of this package from
-[GitHub](https://github.com/) with:
-
-``` r
-# install.packages("remotes")
-remotes::install_github("epiverse-trace/etdev")
-```
+- [x] (2025-06-23) This repository has been archived on GitHub. Changes to the
+  codebase, or opening new issues or pull requests is no longer possible.
+- [ ] Once this package is no longer used anywhere in our organization
+  (https://github.com/search?q=%2F%5Cbetdev%2F+org%3Aepiverse-trace&type=code),
+  the GitHub repository should be removed entirely.
